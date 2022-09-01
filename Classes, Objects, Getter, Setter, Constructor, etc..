@@ -1,0 +1,120 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+class Hero{
+
+private: //Access Modifier
+
+ int health;
+ char level;
+
+public:
+   char *name;
+ 
+ 
+public:
+//constructor
+
+Hero() //default constructor
+{
+    cout<<"Simple Constructor Called" <<endl;
+    name= new char[100];
+
+}
+Hero(int h) //parametrized constructor
+{
+this->health= h;
+
+}
+
+Hero(Hero& temp) //copy constructor
+{
+
+    // Deep Copy
+
+    //char *ch= new char[strlen(temp.name)+1];
+   // strcpy(ch, temp.name);
+    //bthis->name= ch;
+
+cout<<"Copy Constructor Called" <<endl;
+this->health= temp.health;
+this->level= temp.level;
+this->name= temp.name;
+
+}
+Hero(int h, char ch)
+{
+this->health= h;
+this->level= ch;
+
+}
+void sethealth(int h) // Setter function used to initialize the attributes since they are private
+{
+this->health= h;
+}
+int gethealth()  //Getter function is used to fetch a value of the attribute since it is private and can't be accessed directly
+{
+return this->health;
+
+}
+void setlevel(char ch)
+{
+this->level= ch;
+
+}
+
+void setname(char name[])
+{
+    
+
+     strcpy(this->name, name);
+
+     
+
+
+}
+void print()
+{
+
+    cout<<this->name<<endl;
+}
+
+char getlevel()
+{
+return this->level;
+}
+
+
+};
+
+int main()
+{
+
+    Hero a;
+    a.sethealth(70);
+    a.setlevel('A');
+
+   
+
+    //Hero suresh(a); 
+    //copy constructor
+//suresh has same attributes now as of a
+
+   char name[7]= "Uday";
+   a.setname(name);
+  
+   
+    
+Hero suresh(a);
+  
+ 
+a.name[0]= 'C';
+
+a.print();
+suresh.print();
+
+   //suresh.print();
+   //deep copy makes a new copy and shallow copy is just like passing by reference and copy is not created when it is passed
+   
+
+}

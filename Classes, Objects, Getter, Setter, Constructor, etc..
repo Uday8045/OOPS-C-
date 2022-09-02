@@ -10,6 +10,7 @@ private: //Access Modifier
 
 public:
    char *name;
+   static int count;
  
  
 public:
@@ -63,6 +64,18 @@ this->level= ch;
 
 }
 
+static int random() //static function can access only static members/variables
+{
+    return count;
+}
+~Hero()
+{
+    cout<<"Destructor Called" <<endl;
+}
+
+};
+
+
 void setname(char name[])
 {
     
@@ -86,6 +99,7 @@ return this->level;
 
 
 };
+int Hero:: count = 0;
 
 int main()
 {
@@ -94,7 +108,11 @@ int main()
     a.sethealth(70);
     a.setlevel('A');
 
-   
+   //Hero b;
+ 
+
+    
+    cout<< Hero:: random()<< endl;
 
     //Hero suresh(a); 
     //copy constructor
@@ -105,7 +123,7 @@ int main()
   
    
     
-Hero suresh(a);
+Hero suresh(a); //copy constructor by default does shallow copy
   
  
 a.name[0]= 'C';

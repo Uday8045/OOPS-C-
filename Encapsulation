@@ -1,0 +1,41 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+class ExampleClass 
+{
+
+public:
+
+ExampleClass(int n1, int n2) 
+{
+
+num1= n1;
+num2= n2;
+
+
+}
+
+// Encapsulation wraps up the data members and functions in which data members/attributes are private and functions/methods are public.
+int Sum() 
+{                  //public function to return the result of addition of two numbers so that we directly don't access the numbers
+return num1 + num2;
+}
+
+private:              //private attributes which cant be accessed from outside
+
+
+int num1;
+int num2;
+
+};
+//add
+
+int main()
+{
+
+ExampleClass c1(1,2);
+cout<< c1.Sum() <<endl;
+
+
+
+}
